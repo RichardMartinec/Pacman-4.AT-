@@ -158,7 +158,7 @@ public:
     }
 };
 
-// ==== DUCH BLINKY ====
+
 class Blinky {
 private:
     int xbcor;
@@ -180,7 +180,7 @@ public:
         cout << "B";
     }
 
-    // FIX: teraz prijíma staré súradnice, aby mazal ducha zo starej pozície
+ 
     void deleteB(int old_bx, int old_by) {
 
         if (old_bx < 0 || old_bx >= 32 || old_by < 0 || old_by >= 21) return; // ochrana proti mimo mapy
