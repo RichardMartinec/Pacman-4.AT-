@@ -183,7 +183,7 @@ public:
  
     void deleteB(int old_bx, int old_by) {
 
-        if (old_bx < 0 || old_bx >= 32 || old_by < 0 || old_by >= 21) return; // ochrana proti mimo mapy
+        if (old_bx < 0 || old_bx >= 32 || old_by < 0 || old_by >= 21) return; // ochrana proti pohybu mimo mapy
 
         if (map[old_by][old_bx] == '.') {
             gotoxy(old_bx, old_by);
@@ -219,7 +219,7 @@ public:
 
     void deleteI(int old_ix, int old_iy) {
 
-        if (old_ix < 0 || old_ix >= 32 || old_iy < 0 || old_iy >= 21) return; // ochrana proti mimo mapy
+        if (old_ix < 0 || old_ix >= 32 || old_iy < 0 || old_iy >= 21) return; // ochrana proti pohybu mimo mapy
 
         if (map[old_iy][old_ix] == '.') {
             gotoxy(old_ix, old_iy);
@@ -445,11 +445,6 @@ int main()
                 x++; 
             }
         }
-        //if (map[y][x] == 'O') { // zjedol power-up
-        //    superMode = true;
-        //    superModeTimer = superModeDuration;
-        //    map[y][x] = ' '; // odstránenie power-upu z mapy
-        //}
 
 
 
@@ -521,17 +516,32 @@ int main()
         if (superMode) {
             superModeTimer--;
             if (superModeTimer <= 0) {
-                superMode = false; // koniec super režimu
+                superMode = false;
             }
         }
 
 
         if (superMode) {
-            // Pac-Man zjedol ducha
-            if ((bx == x && by == y)) { bx = 15; by = 7; } // Blinky sa re-spawn
-            if ((ix == x && iy == y)) { ix = 16; iy = 9; } // Inky
-            if ((px == x && py == y)) { px = 14; py = 9; } // Pinky
-            if ((cx == x && cy == y)) { cx = 15; cy = 9; } // Clyde
+            if ((bx == x && by == y)) 
+                { 
+                    bx = 15; 
+                    by = 7; 
+                }
+            if ((ix == x && iy == y)) 
+                { 
+                    ix = 16; 
+                    iy = 9; 
+                }
+            if ((px == x && py == y)) 
+                { 
+                    px = 14; 
+                    py = 9; 
+                }
+            if ((cx == x && cy == y)) 
+                { 
+                    cx = 15; 
+                    cy = 9; 
+                }
         }else if ((bx == x && by == y) || (ix == x && iy == y) || (px == x && py == y) || (cx == x && cy == y)) {
             break;
         }
@@ -546,7 +556,7 @@ int main()
     }
 
     system("cls"); //vymaz obrazovku
-    printf("Game Over. Your score is : %i", skore); // vypis konecne skore
+    printf("Game Over. Your score is : %i", skore);
     cin.get(); 
     cin.get();
     cin.get();
