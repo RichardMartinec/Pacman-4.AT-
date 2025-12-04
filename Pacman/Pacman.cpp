@@ -545,7 +545,7 @@ int main()
         }else if ((bx == x && by == y) || (ix == x && iy == y) || (px == x && py == y) || (cx == x && cy == y)) {
             break;
         }
-        else if (skore == 328) {
+        else if (skore == 331) {
             break;
         }
 
